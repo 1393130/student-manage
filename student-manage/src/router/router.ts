@@ -1,16 +1,22 @@
-import Vue from "vue";
-import Router from "vue-router";
-import Home from "./views/Home.vue";
-import Login from "./views/Login.vue";
-import KeyCharts from "./views/KeyCharts.vue";
-Vue.use(Router);
+import Vue from 'vue'
+import Router from 'vue-router'
+import Home from '../views/Home.vue'
+import Charts from '../views/Charts.vue' 
+import Login from "../views/Login.vue";
+import KeyCharts from "../views/KeyCharts.vue";
+Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: "/",
-      name: "home",
+      path: '/',
+      name: 'home',
       component: Home
+    },
+    {
+      path:'/charts',
+      name: 'charts',
+      component: Charts
     },
     {
       path: "/login",
@@ -31,4 +37,4 @@ export default new Router({
     //   component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     // }
   ]
-});
+})

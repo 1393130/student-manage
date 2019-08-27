@@ -40,6 +40,8 @@ body {
     }
   }
 }
+@media screen and (min-width: 960px) and (max-width : 1920px) {
+
 .nav {
   position: fixed;
   right: 0;
@@ -51,4 +53,23 @@ body {
 .nav a {
   display: block;
 }
+}
+  @media screen and (min-width: 375px){
+    
+.nav {
+  position: fixed;
+  left: 0;
+  bottom:0;
+  width:100%;
+  height: 44px;
+  background: salmon;
+  display: flex; 
+  align-items:center;
+}
+.nav a {
+  flex:1;
+  display: block;
+  text-decoration:none;
+}
+  }
 </style>

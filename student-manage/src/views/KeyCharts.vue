@@ -255,7 +255,7 @@ export default Vue.extend({
 
 @media screen and (max-width: 428px) {
   .KeyCharts {
-    width: 80%;
+    width:100%;
     height: 100%;
     overflow-y: auto;
     background: #e4e4e4;

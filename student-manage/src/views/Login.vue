@@ -1,8 +1,11 @@
 <template>
   <div class="LoginWrap">
-    <div class="LoginTop">
-      <span>重点学生日周考成绩录入管理系统</span>
-    </div>
+    <!-- <div class="LoginTop">
+      <span></span>
+    </div> -->
+    <Heade  slot="header">
+      <template slot="header">重点学生日周考成绩录入管理系统</template>
+    </Heade>
     <div class="LoginBox">
       <div class="LoginBoxTop">网站过程</div>
       <div class="LoginBoxMiddle">
@@ -24,7 +27,12 @@
 </template>        
 <script lang="ts">
 import Vue from "vue";
-export default Vue.extend({});
+import Heade from '../components/heade';
+export default Vue.extend({
+  components: {
+    Heade
+  }
+});
 </script> 
 <style scoped lang="scss">
 @media screen and (min-width: 428px) and (max-width: 1920px) {
@@ -101,17 +109,9 @@ export default Vue.extend({});
 }
 @media screen and (max-width: 428px) {
   .LoginWrap {
-    width: 80%;
+    width: 100%;
     height: 100%;
-    .LoginTop {
-      width: 100%;
-      height: 2rem;
-      background: #3f51b5;
-      color: #fff;
-      text-align: center;
-      line-height: 2rem;
-      font-size: 0.56rem;
-    }
+  
   }
   .LoginBox {
     width: 100%;
