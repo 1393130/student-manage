@@ -146,7 +146,7 @@ export default {
 </script>
 <style scoped lang="scss">
  .wrap {
-   width: 1439px;
+   width: 80%;
    height: 100%;
    margin: auto;
  }
@@ -158,7 +158,7 @@ export default {
    .main_title {
      left: 0px;
      top: 102px;
-     width: 1436px;
+      width: 80%;
      height: 202px;
      line-height: 20px;
      text-align: center;

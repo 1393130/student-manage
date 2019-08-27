@@ -158,21 +158,22 @@ export default Vue.extend({
       box-sizing: border-box;
     }
     .home {
-      width: 100%;
+      width:80%;
       height: 100%;
       line-height: 20px;
       text-align: center;
       border: 1px solid rgba(187, 187, 187, 1);
+     
     }
     .main {
       width: 80%;
+ 
       position: relative;
     }
     .main_header {
       width: 70%;
       height: 100px;
       border: 1px solid rgba( 187, 187,187,1);      
-      // margin: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -412,8 +413,8 @@ export default Vue.extend({
       height: 100%;
     }
     .main {
-      flex: 1;
-      margin: auto;
+      padding:20px;
+      flex: 1; 
       position: relative;
     }
     .main_header {

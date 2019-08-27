@@ -21,6 +21,7 @@ export default {
       text-align: center;
       font-family: Roboto;
       border: 1px solid rgba(187, 187, 187, 1);
+     
     }
   }
   @media screen and (max-width: 428px) {
