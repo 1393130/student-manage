@@ -11,14 +11,16 @@ export default {
 </script>
 <style scoped lang="scss">
  .header {
-      width: 100%;
+      left: 0px;
+      top: 0px;
+      width: 1439px;
       height: 100px;
-      background: #0076FF;
-      margin: auto;
-      font-size: 30px;
       line-height: 100px;
-      color: #fff;
-      margin-bottom: 63px;
+      background-color: rgba(0, 118, 255, 1);
+      color: rgba(255, 255, 255, 1);
+      font-size: 28px;
       text-align: center;
+      font-family: Roboto;
+      border: 1px solid rgba(187, 187, 187, 1);
   }
 </style>
