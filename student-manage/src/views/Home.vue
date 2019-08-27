@@ -14,7 +14,7 @@
         </div>
         <div  class="main_header_right">
          <input type="text">
-         <div class="selecd">
+         <!-- <div class="selecd">
            <ul>
              <li>学生1</li>
              <li>学生2</li>
@@ -22,7 +22,7 @@
              <li>学生4</li>
              <li>学生5</li>
            </ul>
-         </div>
+         </div> -->
         </div>
       </section>
       <section class="main_form_box">
@@ -42,37 +42,13 @@
             <li>
               <span>1</span>
               <span>11-03-2017</span>
-              <span>100</span>
-              <span>Transfering</span>
-              <span>对方过后就给烦的水电费阿斯顿发刻录机拉开距离时刻就福利撒的发撒的水电费水电费是胜多负少的方式</span>
-              <span>否</span>
-              <p>
-                <span>编辑、</span>
-                <span>删除</span>
-              </p>
-            </li>
-            <li>
-              <span>1</span>
-              <span>11-03-2017</span>
-              <span>100</span>
-              <span>Transfering</span>
-              <span>对方过后就给烦的水电费阿斯顿发刻录机拉开距离时刻就福利撒的发撒的水电费水电费是胜多负少的方式</span>
-              <span>否</span>
-              <p>
-                <span>编辑、</span>
-                <span>删除</span>
-              </p>
-            </li>
-            <li>
-              <span>1</span>
-              <span>11-03-2017</span>
               <span>45</span>
               <span>Transfering</span>
-              <span>对方过后就给烦的水电费阿斯顿发刻录机拉开距离时刻就福利撒的发撒的水电费水电费是胜多负少的方式</span>
+              <span>斯顿发刻福利撒的发撒的水撒的发生的发生的水电费水电费水电费所得税法水电费水电费水电费电费是胜多负少的方式</span>
               <span>否</span>
               <p>
-                <span @click="compile">编辑、</span>
-                <span>删除</span>
+                <span @click="compile">编辑,</span>
+                <span @click="deletes">删除</span>
               </p>
             </li>
           </ol>
@@ -115,6 +91,15 @@
             <span @click="hasClick">确定</span>
           </div>
         </div>
+        <div v-show="deleteoff === false ? false : true " class="bg">
+          <div class="dialog">
+            <span>你确定删除吗？</span>
+            <div class="dialog_btn">
+              <span @click="deletecancel">取消</span>
+              <span>确定</span>
+            </div>
+          </div>
+        </div>
       </section>
     </section>
     <footer class="footer"></footer>
@@ -131,7 +116,8 @@ export default Vue.extend({
   },
   data() {
     return {
-      flag:false
+      flag:false,
+      deleteoff:false
     }
   },
   methods : {
@@ -147,6 +133,16 @@ export default Vue.extend({
     hasClick() {  
       this.flag = false
       console.log('你点击了确定')
+    },
+    //删除
+    deletes() {
+      this.deleteoff = true
+      console.log('点击了删除')
+    },
+    //删除的取消
+    deletecancel() {
+      this.deleteoff = false
+      console.log('点击了删除的取消')
     }
   },
 });
@@ -157,18 +153,22 @@ export default Vue.extend({
     margin: 0;
     padding: 0;
   }
-  .home {
-   width: 1439px;
-   height: 100%;
-   line-height: 20px;
-   text-align: center;
-   border: 1px solid rgba(187, 187, 187, 1);
-   margin: auto;
-  }
-  @media screen and (min-width: 960px) and (max-width : 1920px) {
-    .main {
-      flex: 1;
+  @media screen and (min-width: 428px) and (max-width: 1920px) {
+    * {
+      box-sizing: border-box;
+    }
+    .home {
+      width: 90%;
+      height: 100%;
+      line-height: 20px;
+      text-align: center;
+      border: 1px solid rgba(187, 187, 187, 1);
       margin: auto;
+    }
+    .main {
+      width: 90%;
+      margin: auto;
+      position: relative;
     }
     .main_header {
       width: 70%;
@@ -221,17 +221,15 @@ export default Vue.extend({
       }
     }
     .main_form_box {
-      left: 77px;
-      top: 271px;
-      width: 70%;
+      width: 100%;
       height: 343px;
-      line-height: 20px;
       color: rgba(16, 16, 16, 1);
       font-size: 14px;
       text-align: center;
       font-family: Roboto;
       border: 1px solid rgba(187, 187, 187, 1);
       margin: 8px auto;
+      position: relative;
       .main_form_box_title {
         width: 100%;
         ul {
@@ -242,191 +240,32 @@ export default Vue.extend({
           border-bottom: 1px solid rgba( 187, 187,187,1);
           box-sizing: border-box;
           li {
-            &:first-child {
-              left: 75px;
-              top: 287px;
-              width: 53px;
-              height: 20px;
-              line-height: 20px;
-              border-radius: 2px 2px 2px 2px;
-              color: rgba(16, 16, 16, 1);
-              font-size: 14px;
-              text-align: center;
-              font-family: Roboto;
-              border: 1px solid rgba(220, 223, 230, 1);
-            }
-            &:nth-child(2) {
-              left: 148px;
-              top: 289px;
-              width: 37px;
-              height: 20px;
-              color: rgba(144, 147, 153, 1);
-              font-size: 14px;
-              text-align: left;
-              font-family: Roboto-regular;
-              margin-left: 42px;
-              margin-right: 70px;
-              span {
-                left: 185px;
-                top: 296px;
-                width: 10px;
-                height: 5px;
-                background-color: rgba(144, 147, 153, 1);
-              }
-            }
-            &:nth-child(3) {
-              left: 306px;
-              top: 290px;
-              width: 37px;
-              height: 20px;
-              color: rgba(144, 147, 153, 1);
-              font-size: 14px;
-              text-align: left;
-              font-family: Roboto-regular;
-              padding-right: 90px;
-              margin-left: 7px;
-            }
-            &:nth-child(4) {
-              left: 443px;
-              top: 289px;
-              width: 37px;
-              height: 20px;
-              color: rgba(144, 147, 153, 1);
-              font-size: 14px;
-              text-align: left;
-              font-family: Roboto-regular;
-              margin-right: 201px;
-            }
+            flex: 1;
             &:nth-child(5) {
-              left: 1195px;
-              top: 291px;
-              width: 76px;
-              height: 20px;
-              color: rgba(144, 147, 153, 1);
-              font-size: 14px;
-              text-align: left;
-              font-family: Roboto-regular;
-              padding-right: 185px;
-            }
-            &:nth-child(6) {
-              left: 1290px;
-              top: 290px;
-              width: 62px;
-              height: 20px;
-              color: rgba(144, 147, 153, 1);
-              font-size: 14px;
-              text-align: left;
-              font-family: Roboto-regular;
-              padding-right: 39px;
-            }
-            &:nth-child(7) {
-              left: 1290px;
-              top: 290px;
-              width: 42px;
-              height: 20px;
-              color: rgba(144, 147, 153, 1);
-              font-size: 14px;
-              text-align: left;
-              font-family: Roboto-regular;
+              flex: 5;
             }
           }
         }
         ol {
           width: 100%;
           li {
-            width: 100%;
-            height: 50px;
             display: flex;
+            border-bottom: 1px solid rgba(235,238,245,1);
             align-items: center;
-            border-bottom: 1px solid rgba( 187, 187,187,1);
-            box-sizing: border-box;
+            height: 70px;
             >span {
-              display: flex;
               display: inline-block;
-              box-sizing: border-box;
-              &:first-child {
-                left: 93px;
-                top: 355px;
-                width: 18px;
-                height: 20px;
-                line-height: 20px;
-                border-radius: 2px 2px 2px 2px;
-                color: rgba(16, 16, 16, 1);
-                font-size: 14px;
-                text-align: center;
-                font-family: Roboto;
-                border: 1px solid rgba(220, 223, 230, 1);
-                margin-left: 16px;
+              flex: 1;
+              &:nth-child(5) {
+                flex: 5;
               }
-              &:nth-child(2) {
-                left: 148px;
-                top: 359px;
-                width: 98px;
-                height: 20px;
-                color: rgba(96, 98, 102, 1);
-                font-size: 14px;
-                text-align: left;
-                font-family: Roboto-regular;
-                margin-left: 37px;
-             }
-              &:nth-child(3) {
-                left: 283px;
-                top: 358px;
-                width: 72px;
-                height: 14px;
-                color: rgba(96, 98, 102, 1);
-                font-size: 14px;
-                text-align: center;
-                font-family: Roboto-regular;
-                padding-left: 37px;
-                margin-right: 88px;
-             }
-             &:nth-child(4) {
-                left: 443px;
-                top: 357px;
-                width: 100px;
-                height: 20px;
-                color: rgba(96, 98, 102, 1);
-                font-size: 14px;
-                text-align: left;
-                font-family: Roboto-regular;
-             }
-             &:nth-child(5) {
-                left: 597px;
-                top: 355px;
-                width: 380px;
-                height: 28px;
-                color: rgba(96, 98, 102, 1);
-                font-size: 14px;
-                text-align: left;
-                font-family: Roboto-regular;
-                padding-left: 24px;
-             }
-             &:nth-child(6) {
-                left: 1204px;
-                top: 349px;
-                width: 18px;
-                height: 20px;
-                color: rgba(96, 98, 102, 1);
-                font-size: 14px;
-                text-align: left;
-                font-family: Roboto-regular;
-                margin-left: 41px;
-             }
+              &:nth-child(6) {
+                flex: 1;
+              }
             }
-           >p {
-             margin-left: 47px;
-             span {
-              left: 1279px;
-              top: 350px;
-              width: 78px;
-              height: 15px;
-              color: rgba(96, 98, 102, 1);
-              font-size: 14px;
-              text-align: left;
-              font-family: Roboto-regular;
+            >p {
+              flex:1;
             }
-           }
           }
         }
       }
@@ -517,6 +356,295 @@ export default Vue.extend({
         margin-top: 5px;
         &:last-child {
            background-color: rgba(24,144,255,1);
+        }
+      }
+    }
+    .bg {
+      width: 1009.27px;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.12);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .dialog {
+      width: 521px;
+      height: 180px;
+      line-height: 20px;
+      border-radius: 4px 4px 4px 4px;
+      background-color: rgba(255, 255, 255, 1);
+      text-align: center;
+      box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.15);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      >span {
+        padding: 34px 0 0 93px;
+        display: flex;
+      }
+      .dialog_btn {
+        width: 100%;
+        margin-top: 80px; 
+        display: flex;
+        justify-content: flex-end;
+        span {
+          padding: 10px 25px;
+          border: 1px solid rgba(217,217,217,1);
+          border-radius: 4px;
+          margin-right: 10px;
+          &:last-child{
+            background-color: rgba(24,144,255,1);
+          }
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 375px){
+    html,body,#app {
+      width: 100%;
+      height: 100%;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    .home {
+      width: 100%;
+      height: 100%;
+    }
+    .main {
+      flex: 1;
+      margin: auto;
+      position: relative;
+    }
+    .main_header {
+      width: 100%;
+      height: 70px;
+      border: 1px solid rgba( 187, 187,187,1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+      .main_header_left {
+        display: flex;
+         p {
+           font-size: 14px;
+           &:first-child {
+             margin-right: 15px;
+           }
+         }
+      }
+      .main_header_right {
+        width: 180px;
+        height: 30px;
+        border: 1px solid #eee;
+        input {
+          width: 100%;
+          height: 100%;
+          background: none;
+          outline: none;
+          border: none;
+        }
+        .selecd {
+          width: 180px;
+          height: 158px;
+          border-radius: 4px 4px 4px 4px;
+          background-color: rgba(255, 255, 255, 1);
+          color: rgba(16, 16, 16, 1);
+          font-size: 14px;
+          box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.12);
+          font-family: Roboto;
+          overflow-y: auto;
+          ul {
+            li {
+              width: 100%;
+              height: 30px;
+            }
+          }
+        }
+      }
+    }
+    .main_form_box {
+      width: 100%;
+      height: 343px;
+      color: rgba(16, 16, 16, 1);
+      font-size: 14px;
+      text-align: center;
+      font-family: Roboto;
+      border: 1px solid rgba(187, 187, 187, 1);
+      margin: 8px auto;
+      position: relative;
+      .main_form_box_title {
+        width: 100%;
+        ul {
+          width: 100%;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid rgba( 187, 187,187,1);
+          box-sizing: border-box;
+          li {
+            flex: 1;
+            font-size: 12px;
+          }
+        }
+        ol {
+          width: 100%;
+          li {
+            display: flex;
+            border-bottom: 1px solid rgba(235,238,245,1);
+            align-items: center;
+            height: 70px;
+            >span {
+              display: inline-block;
+              flex: 1;
+              font-size: 12px;
+              &:nth-child(5) {
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space: nowrap;
+              }
+            }
+            >p {
+              flex:1;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+    .editbox {
+      width: 100%;
+      height: 280px;
+      border-radius: 4px 4px 4px 4px;
+      background-color: rgba(255, 255, 255, 1);
+      text-align: center;
+      box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.2);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      font-size: 12px;
+      .editbox_title {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 14px;
+      }
+      .editbox_cont {
+        height: 80px;
+        label {
+          display: flex;
+          align-items: center;
+          height: 25px;
+          margin-top: 10px;
+          span {
+            margin-right: 12px;
+            margin-left: 35px;
+            margin-top: 14px;
+          }
+          div {
+            width: 197px;
+            height: 25px;
+            border-radius: 4px;
+            border: 1px solid rgba(220,223,230,1);
+            margin-top: 14px;
+            overflow: hidden;
+            input {
+              width: 100%;
+              height: 100%;
+              border: none;
+            }
+          }
+        }
+      }
+    }
+    .ditbox_btn {
+      display: flex;
+      margin-left: 60px;
+      padding: 5px 14px;
+      span {
+        display: flex;
+        padding: 5px 10px;
+        border-radius: 4px 4px 4px 4px;
+        background-color: rgba(255, 255, 255, 1);
+        text-align: center;
+        border: 1px solid rgba(25, 137, 250, 1);
+        align-items: center;
+        margin-right: 10px;
+        i {
+          width: 14px;
+          height: 14px;
+          margin-right: 5px;
+          background-color: rgba(25, 137, 250, 1);
+        }
+      }
+    }
+    .solution {
+      display: flex;
+      padding: 0 25px;
+      align-items: center;
+      span {
+        margin-right: 10px;
+      }
+      textarea {
+        border: 1px solid rgba(187, 187, 187, 1);
+      }
+    }
+    .editbox_footer {
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+      span {
+        display: flex;
+        padding: 5px 15px;
+        border-radius: 4px;
+        background-color: rgba(217,217,217,1);
+        margin-right: 20px;
+        margin-top: 5px;
+        &:last-child {
+           background-color: rgba(24,144,255,1);
+        }
+      }
+    }
+    .bg {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.12);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .dialog {
+      width: 100%;
+      height: 180px;
+      line-height: 20px;
+      border-radius: 4px 4px 4px 4px;
+      background-color: rgba(255, 255, 255, 1);
+      text-align: center;
+      box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.15);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      >span {
+        padding: 34px 0 0 93px;
+        display: flex;
+      }
+      .dialog_btn {
+        width: 100%;
+        margin-top: 80px; 
+        display: flex;
+        justify-content: flex-end;
+        span {
+          padding: 5px 15px;
+          border: 1px solid rgba(217,217,217,1);
+          border-radius: 4px;
+          margin-right: 10px;
+          &:last-child{
+            background-color: rgba(24,144,255,1);
+          }
         }
       }
     }

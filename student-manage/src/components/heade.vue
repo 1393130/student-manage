@@ -10,10 +10,9 @@ export default {
 }
 </script>
 <style scoped lang="scss">
- .header {
-      left: 0px;
-      top: 0px;
-      width: 1439px;
+  @media screen and (min-width: 428px) and (max-width: 1920px) {
+    .header {
+      width: 90%;
       height: 100px;
       line-height: 100px;
       background-color: rgba(0, 118, 255, 1);
@@ -22,5 +21,20 @@ export default {
       text-align: center;
       font-family: Roboto;
       border: 1px solid rgba(187, 187, 187, 1);
+      margin: auto;
+    }
+  }
+  @media screen and (max-width: 428px) {
+    .header {
+      width: 100%;
+      height: 80px;
+      line-height: 80px;
+      background-color: rgba(0, 118, 255, 1);
+      color: rgba(255, 255, 255, 1);
+      font-size: 20px;
+      text-align: center;
+      font-family: Roboto;
+      border: 1px solid rgba(187, 187, 187, 1);
+    }
   }
 </style>
