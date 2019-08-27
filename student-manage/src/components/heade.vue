@@ -12,7 +12,7 @@ export default {
 <style scoped lang="scss">
   @media screen and (min-width: 428px) and (max-width: 1920px) {
     .header {
-      width: 90%;
+      width: 100%;
       height: 100px;
       line-height: 100px;
       background-color: rgba(0, 118, 255, 1);
@@ -21,7 +21,6 @@ export default {
       text-align: center;
       font-family: Roboto;
       border: 1px solid rgba(187, 187, 187, 1);
-      margin: auto;
     }
   }
   @media screen and (max-width: 428px) {
