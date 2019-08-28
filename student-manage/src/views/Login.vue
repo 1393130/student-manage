@@ -1,9 +1,6 @@
 <template>
   <div class="LoginWrap">
-    <!-- <div class="LoginTop">
-      <span></span>
-    </div> -->
-    <Heade  slot="header">
+    <Heade slot="header">
       <template slot="header">重点学生日周考成绩录入管理系统</template>
     </Heade>
     <div class="LoginBox">
@@ -27,8 +24,9 @@
 </template>        
 <script lang="ts">
 import Vue from "vue";
-import Heade from '../components/heade';
+import Heade from "../components/heade";
 export default Vue.extend({
+  name: "login",
   components: {
     Heade
   }
@@ -37,23 +35,21 @@ export default Vue.extend({
 <style scoped lang="scss">
 @media screen and (min-width: 428px) and (max-width: 1920px) {
   .LoginWrap {
-    width: 80%;
+    width: 100%;
     height: 100%;
-    .LoginTop {
-      width: 100%;
-      height: 100px;
-      background: #3f51b5;
-      color: #fff;
-      text-align: center;
-      line-height: 100px;
-      font-size: 28px;
-    }
+    position: relative;
   }
   .LoginBox {
-    width: 100%;
     width: 499px;
     height: 471px;
-    margin: 104px auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -235.5px;
+    margin-left: -390.5px;
+    // margin-left: -249.5px;
+    // margin: 104px auto;
+    text-align: center;
     .LoginBoxTop {
       width: 100%;
       height: 68px;
@@ -73,7 +69,7 @@ export default Vue.extend({
   }
   .LoginInp {
     width: 100%;
-    height: 11 0px;
+    height: 110px;
     display: flex;
     flex-direction: column;
     input {
@@ -111,24 +107,24 @@ export default Vue.extend({
   .LoginWrap {
     width: 100%;
     height: 100%;
-  
   }
   .LoginBox {
     width: 100%;
-    width: 9.98rem;
-    height: 8.34rem;
+    width: 20rem;
     margin: 2.08rem auto;
+    text-align: center;
     .LoginBoxTop {
       width: 100%;
       height: 1.36rem;
       line-height: 1.36rem;
       text-align: center;
-      font-size: 0.72rem;
+      font-size: 1.5rem;
     }
     .LoginBoxMiddle {
       width: 100%;
       height: 2rem;
       line-height: 2rem;
+      margin-top: 1.5rem;
       span {
         padding: 0.12rem 0.3rem;
         color: #999;
@@ -140,11 +136,13 @@ export default Vue.extend({
     height: 2.2rem;
     display: flex;
     flex-direction: column;
+    margin-top: 0.6rem;
     input {
-      width: 70%;
-      height: 0.88rem;
-      margin-left: 15%;
-      margin-top: 0.2rem;
+      width: 80%;
+      height: 2rem;
+      flex-shrink: 0;
+      margin-left: 10%;
+      margin-top: 1rem;
       border: 0;
       border: solid 0.02rem #999;
       padding-left: 0.2rem;
@@ -154,19 +152,18 @@ export default Vue.extend({
     width: 100%;
     height: 1rem;
     line-height: 1rem;
-    margin-top: 0.5rem;
+    margin-top: 5rem;
     span {
       margin-left: 0.16rem;
     }
   }
   .LoginBtn {
-    width: 80%;
-    height: 1rem;
+    width: 100%;
+    height: 2.5rem;
     background: #3f51b5;
     color: #fff;
-    line-height: 1rem;
-    margin-left: 12%;
-    margin-top: 0.5rem;
+    line-height: 2.5rem;
+    margin-top: 3rem;
   }
   .active {
     color: #3f51b5;
