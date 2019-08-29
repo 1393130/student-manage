@@ -1,6 +1,6 @@
 <template>
   <div class="LoginWrap">
-    <Heade slot="header">
+    <Heade  slot="header">
       <template slot="header">重点学生日周考成绩录入管理系统</template>
     </Heade>
     <div class="LoginBox">
@@ -11,18 +11,19 @@
       </div>
 
       <div class="LoginInp" v-show="isTrueLogin === true ? true : false">
-        <input type="text" placeholder="牛牛号/电邮" />
-        <input type="password" placeholder="输入密码" />
+        <input type="text" placeholder="输入用户名" v-model="username" />
+        <input type="password" placeholder="输入密码" v-model="password" />
       </div>
-      <div class="LoginInp" v-show="isTrue === true ? true : false">
-        <input type="text" placeholder="请输入要注册账号" />
-        <input type="password" placeholder="输入要注册密码" />
+      <div class="LoginInps" v-show="isTrue === true ? true : false">
+        <input type="text" placeholder="请输入要注册账号" v-model="username" />
+        <input type="password" placeholder="输入要注册密码" v-model="password" />
+        <input type="text" placeholder="请输入手机号" v-model="phone">
       </div>
-      <div class="LoginCheck">
-        <input type="checkbox" />
+      <div class="LoginCheck" v-show="isTrueLogin === true ? true : false">
+        <input type="checkbox" v-model="checked" @click="checkedall" />
         <span>两周内自动登录</span>
       </div>
-      <div class="LoginBtn" v-show="isTrueLogin === true ? true : false">登录</div>
+      <div @click="haslogin" class="LoginBtn" v-show="isTrueLogin === true ? true : false">登录</div>
       <div @click="registerBtn" class="LoginBtn" v-show="isTrue === true ? true : false">注册</div>
     </div>
   </div>
@@ -31,6 +32,7 @@
 import Vue from "vue";
 import Heade from '../components/heade.vue';
 import { mapState ,mapActions } from 'vuex'
+import { getToken , setToken} from '../utils/index'
 export default Vue.extend({
   name: "login",
   components: {
@@ -38,13 +40,23 @@ export default Vue.extend({
   },
   data() {
     return {
-      isTrue:false,
-      isTrueLogin:true
+      isTrue: false,
+      isTrueLogin: true,
+      username: '',
+      password: '',
+      phone: '',
+      checked:false
     }
+  },
+  computed :{
+    ...mapState({
+      code:(state:any) => state.login.loginInof
+    })
   },
   methods: {
     ...mapActions({
-      getregister:'login/register'
+      getregister: 'login/register',
+      getLogin: 'login/getLogin'
     }),
     register() {
       this.isTrue = true
@@ -54,8 +66,42 @@ export default Vue.extend({
       this.isTrue = false
       this.isTrueLogin = true
     },
+    checkedall() {
+      this.checked = !this.checked
+      if(this.checked) {
+        setToken(this.username)
+      }
+    },
+    //注册
     registerBtn() {
-      this.getregister({username:'123',password:'123'})
+      this.getregister({username:this.username,password:this.password,phone:this.phone})
+    },
+    //登录
+    async haslogin() {
+      if(this.username === '') {
+        alert('请输入用户名')
+        return 
+      } else if(this.password === '') {
+        alert('请输入密码')
+        return 
+      }
+      await this.getLogin({
+        username:this.username,
+        password:this.password,
+        validlength:this.checked ? (24*2).toString : ''
+      })
+      if(this.code.code === 1) {
+        alert('登录成功')
+        this.$router.push('/')
+      } else if(this.code.code !== 1) {
+        alert(this.code.msg)
+      }
+    },
+  },
+  created() {
+    if(getToken()) {
+      console.log(1)
+      this.$router.push('/')
     }
   }
 });
@@ -65,18 +111,18 @@ export default Vue.extend({
   .LoginWrap {
     width: 100%;
     height: 100%;
-    position: relative;
+    // position: relative;
   }
   .LoginBox {
     width: 499px;
     height: 471px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -235.5px;
-    margin-left: -390.5px;
-    // margin-left: -249.5px;
-    // margin: 104px auto;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // margin-top: -235.5px;
+    // margin-left: -390.5px;
+    // // margin-left: -249.5px;
+    margin: 104px auto;
     text-align: center;
     .LoginBoxTop {
       width: 100%;
@@ -96,14 +142,14 @@ export default Vue.extend({
       }
     }
   }
-  .LoginInp {
+  .LoginInp , .LoginInps {
     width: 100%;
     height: 110px;
     display: flex;
     flex-direction: column;
     input {
       width: 70%;
-      height: 44px;
+      height: 124px;
       margin-left: 15%;
       margin-top: 10px;
       border: 0;
@@ -128,6 +174,7 @@ export default Vue.extend({
     line-height: 50px;
     margin-left: 12%;
     text-align: center;
+    margin-top: 20px;
   }
   .active {
     color: #3f51b5;

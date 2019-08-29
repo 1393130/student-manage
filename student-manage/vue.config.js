@@ -1,4 +1,5 @@
 module.exports = {
+<<<<<<< HEAD
   // devServer: {
   //     open: true,
   //     host: 'localhost',
@@ -25,4 +26,9 @@ module.exports = {
     hotOnly: false,
     proxy: 'http://148.70.121.59:9001' // 设置代理
  }
+=======
+  devServer: {
+    proxy: 'http://148.70.121.59:9001/emstu'
+  }
+>>>>>>> a78e2dc399b8abeef4f94a61a09e9fc5301add2e
 }

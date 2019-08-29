@@ -10,7 +10,7 @@ export default {};
 <style scoped lang="scss">
 @media screen and (min-width: 428px) and (max-width: 1920px) {
   .header {
-    width: 80%;
+    width: 100%;
     height: 100px;
     line-height: 100px;
     background-color: #3f51b5;
