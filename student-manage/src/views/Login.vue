@@ -6,29 +6,57 @@
     <div class="LoginBox">
       <div class="LoginBoxTop">网站过程</div>
       <div class="LoginBoxMiddle">
-        <span class="active">登录</span>
-        <span>注册</span>
+        <span @click="loginBtn" :class="{active:isTrueLogin}">登录</span>
+        <span @click="register" :class="{active:isTrue}">注册</span>
       </div>
 
-      <div class="LoginInp">
+      <div class="LoginInp" v-show="isTrueLogin === true ? true : false">
         <input type="text" placeholder="牛牛号/电邮" />
         <input type="password" placeholder="输入密码" />
+      </div>
+      <div class="LoginInp" v-show="isTrue === true ? true : false">
+        <input type="text" placeholder="请输入要注册账号" />
+        <input type="password" placeholder="输入要注册密码" />
       </div>
       <div class="LoginCheck">
         <input type="checkbox" />
         <span>两周内自动登录</span>
       </div>
-      <div class="LoginBtn">登录</div>
+      <div class="LoginBtn" v-show="isTrueLogin === true ? true : false">登录</div>
+      <div @click="registerBtn" class="LoginBtn" v-show="isTrue === true ? true : false">注册</div>
     </div>
   </div>
 </template>        
 <script lang="ts">
 import Vue from "vue";
-import Heade from "../components/heade";
+import Heade from '../components/heade.vue';
+import { mapState ,mapActions } from 'vuex'
 export default Vue.extend({
   name: "login",
   components: {
     Heade
+  },
+  data() {
+    return {
+      isTrue:false,
+      isTrueLogin:true
+    }
+  },
+  methods: {
+    ...mapActions({
+      getregister:'login/register'
+    }),
+    register() {
+      this.isTrue = true
+      this.isTrueLogin = false
+    },
+    loginBtn() {
+      this.isTrue = false
+      this.isTrueLogin = true
+    },
+    registerBtn() {
+      this.getregister({username:'123',password:'123'})
+    }
   }
 });
 </script> 
@@ -61,6 +89,7 @@ export default Vue.extend({
       width: 100%;
       height: 100px;
       line-height: 100px;
+      text-align: center;
       span {
         padding: 6px 15px;
         color: #999;
@@ -86,6 +115,7 @@ export default Vue.extend({
     width: 100%;
     height: 50px;
     line-height: 50px;
+    padding-left: 72px;
     span {
       margin-left: 8px;
     }
@@ -97,6 +127,7 @@ export default Vue.extend({
     color: #fff;
     line-height: 50px;
     margin-left: 12%;
+    text-align: center;
   }
   .active {
     color: #3f51b5;

@@ -174,7 +174,6 @@ export default Vue.extend({
       width: 70%;
       height: 100px;
       border: 1px solid rgba( 187, 187,187,1);      
- 
       display: flex;
       justify-content: space-between;
       align-items: center;
