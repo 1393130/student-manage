@@ -8,10 +8,11 @@
 import axios from "axios";
 // import { getCookie } from "./index";
 //axios.defaults.timeout = 5000 // 请求超时
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
 const service=axios.create({
-  baseURL: "http://148.70.121.59:9001",
+  // baseURL: "http://148.70.121.59:9001",
+     baseURL: ''
 })
-
 service.interceptors.request.use(
   config=>{
     // if(getCookie()){

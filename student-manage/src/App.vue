@@ -3,10 +3,12 @@
     <div class="nav">
       <router-link to="/login">登录与注册</router-link>
       <router-link to="/">主页</router-link>
-       <router-link to='/keyCharts'>charts</router-link>
+      <router-link to='/keyCharts'>charts</router-link>
     </div>
-
-    <router-view />
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive" />
+    </keep-alive>
+      <router-view v-if="!$route.meta.keepAlive" />
   </div>
 </template>
 
